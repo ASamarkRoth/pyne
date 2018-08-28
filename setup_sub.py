@@ -31,7 +31,8 @@ def main():
     scripts = [os.path.join('scripts', f) for f in os.listdir('scripts')]
     scripts = [s for s in scripts if (os.name == 'nt' and s.endswith('.bat'))
                                      or (os.name != 'nt' and
-                                         not s.endswith('.bat'))]
+                                         not s.endswith('.bat'))
+                                     and not os.path.isdir(s) ]
     packages = ['pyne', 'pyne.dbgen', 'pyne.apigen', 'pyne.xs',
                 'pyne.transmute', 'pyne.gui', 'pyne.cli', 'pyne.fortranformat']
     pack_dir = {
